@@ -1,0 +1,22 @@
+version: '2'
+services:
+  proxy:
+    build: ..
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - angular
+    networks:
+      - proxy
+    environment:
+      - HOST=80.99.1.68.nip.io
+      - PORT=80
+    links:
+      - angular:proxied
+  angular:
+    image: thanhson1085/angular-admin-seed
+    networks:
+      - proxy
+networks:
+  proxy:
