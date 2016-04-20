@@ -17,7 +17,7 @@ if [ "$DAYS_EXP" -gt "$DAYS_REMAINING" ]; then
 	echo "Renewal is not necessary."
 else
 	echo "Renewing"
-	/letsencrypt/letsencrypt-auto certonly --renew-by-default --webroot -w /var/www/html --register-unsafely-without-email -d $HOST --agree-tos --text --test-cert 
+	/letsencrypt/letsencrypt-auto certonly --renew-by-default --webroot -w /var/www/html `if [ -z "$EMAIL" ]; then echo "--register-unsafely-without-email"; else echo "$EMAIL"; fi` -d $HOST --agree-tos --text `if [ "$MODE" != "PRODUCTION" ]; then echo "--test-cert"; fi`
 
 	apache2ctl -k restart
 fi

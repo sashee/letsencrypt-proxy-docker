@@ -1,7 +1,7 @@
 version: '2'
 services:
   proxy:
-    build: ..
+    image: sashee/letsencrypt-proxy-docker
     ports:
       - "80:80"
       - "443:443"
@@ -10,8 +10,13 @@ services:
     networks:
       - proxy
     environment:
-      - HOST=80.99.1.68.nip.io
+      # Set your host
+      #- HOST=<yourhost>
       - PORT=80
+      # Set your email
+      #- EMAIL=<your email>
+      # Turn on production mode
+      #- MODE=PRODUCTION
     links:
       - angular:proxied
   angular:
