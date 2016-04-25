@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # From https://community.letsencrypt.org/t/how-to-completely-automating-certificate-renewals-on-debian/5615
-DAYS_REMAINING=87;
+DAYS_REMAINING=30;
 
 get_days_exp() {
   local d1=$(date -d "`openssl x509 -in $1 -text -noout|grep "Not After"|cut -c 25-`" +%s)
