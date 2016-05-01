@@ -1,8 +1,10 @@
-# Let's Encrypt Proxy on Docker
+# Dockerized Let's Encrypt Proxy
 
 This is fully automated dockerized proxy that let's you add HTTPS termination with minimal config.
 It uses Let's Encrypt for valid certificates and automation. It handles certification issuance as well as renewal.
 It has minimal downtime every 2 months, when the Apache proxy is restarted to use the new certificate.
+
+Docker hub link: [https://hub.docker.com/r/sashee/letsencrypt-proxy-docker/](https://hub.docker.com/r/sashee/letsencrypt-proxy-docker/)
 
 ## Usage
 
